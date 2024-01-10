@@ -1,0 +1,20 @@
+CREATE DATABASE ventas;
+
+use ventas;
+
+CREATE TABLE venta (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  articulo VARCHAR(255) NOT NULL,
+  precio INT NOT NULL,
+  created_at DATE DEFAULT CURRENT_DATE,
+  updated_at DATE DEFAULT CURRENT_DATE
+);
+
+Create table registro(
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+id_venta INT NOT NULL,
+total INT NOT NULL,
+created_at DATE DEFAULT CURRENT_DATE,
+updated_at DATE DEFAULT CURRENT_DATE,
+FOREIGN KEY (id_venta) REFERENCES venta(id)
+);
